@@ -5,6 +5,18 @@ http://www.myersbriggs.org/my-mbti-personality-type/mbti-
 basics/the-16 -mbti-types.htm:
 """
 
+from collections import namedtuple
+
+
+AttributeMatrix = namedtuple('AttributeMatrix', ', '.join([
+    'hp', 'mp',
+    'strength', 'endurance',
+    'defense', 'intelligence',
+    'agility', 'charisma',
+    'wisdom', 'willpower',
+    'perception', 'luck'
+]))
+
 
 class MBTIType(object):
     """Base class."""
@@ -27,6 +39,8 @@ class Istj(MBTIType):
     life. Value traditions and loyalty.'
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Isfj(MBTIType):
     """Determine the response for this type, given another type.
@@ -37,6 +51,8 @@ class Isfj(MBTIType):
     to them, concerned with how others feel. Strive to create an orderly and
     harmonious environment at work and at home.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Infj(MBTIType):
@@ -49,6 +65,8 @@ class Infj(MBTIType):
     decisive in implementing their vision.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Intj(MBTIType):
     """Determine the response for this type, given another type.
@@ -59,6 +77,8 @@ class Intj(MBTIType):
     carry it through. Skeptical and independent, have high standards of
     competence and performance - for themselves and others.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Istp(MBTIType):
@@ -71,6 +91,8 @@ class Istp(MBTIType):
     principles, value efficiency.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Isfp(MBTIType):
     """Determine the response for this type, given another type.
@@ -81,6 +103,8 @@ class Isfp(MBTIType):
     important to them. Dislike disagreements and conflicts, do not force their
     opinions or values on others.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Infp(MBTIType):
@@ -93,6 +117,8 @@ class Infp(MBTIType):
     flexible, and accepting unless a value is threatened.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Intp(MBTIType):
     """Determine the response for this type, given another type.
@@ -103,6 +129,8 @@ class Intp(MBTIType):
     ability to focus In depth to solve problems In their area of interest.
     Skeptical, sometimes critical, always analytical.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Estp(MBTIType):
@@ -115,6 +143,8 @@ class Estp(MBTIType):
     material comforts and style. Learn best through doing.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Esfp(MBTIType):
     """Determine the response for this type, given another type.
@@ -125,6 +155,8 @@ class Esfp(MBTIType):
     Flexible and spontaneous, adapt readily to new people and environments.
     Learn best by trying a new skill with other people.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Enfp(MBTIType):
@@ -138,6 +170,8 @@ class Enfp(MBTIType):
     their verbal fluency.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Entp(MBTIType):
     """Determine the response for this type, given another type.
@@ -149,6 +183,8 @@ class Entp(MBTIType):
     new interest after another.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Estj(MBTIType):
     """Determine the response for this type, given another type.
@@ -159,6 +195,8 @@ class Estj(MBTIType):
     details. Have a clear set of logical standards, systematically follow them
     and want others to also. Forceful in implementing their plans.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 class Esfj(MBTIType):
@@ -172,6 +210,8 @@ class Esfj(MBTIType):
     contribute.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Enfj(MBTIType):
     """Determine the response for this type, given another type.
@@ -183,6 +223,8 @@ class Enfj(MBTIType):
     Sociable, facilitate others in a group, and provide inspiring leadership.
     """
 
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
 
 class Entj(MBTIType):
     """Determine the response for this type, given another type.
@@ -193,3 +235,5 @@ class Entj(MBTIType):
     setting. Usually well informed, well read, enjoy expanding their knowledge
     and passing it on to others. Forceful in presenting their ideas.
     """
+
+    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
