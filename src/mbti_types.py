@@ -30,7 +30,7 @@ class MBTIType(object):
 
 
 class Istj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     'Quiet, serious, earn success by thoroughness and dependability. Practical,
     matter-of-fact, realistic, and responsible. Decide logically what should be
@@ -39,11 +39,24 @@ class Istj(MBTIType):
     life. Value traditions and loyalty.'
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Isfj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Quiet, friendly, responsible, and conscientious. Committed and steady in
     meeting their obligations. Thorough, painstaking, and accurate. Loyal,
@@ -52,11 +65,24 @@ class Isfj(MBTIType):
     harmonious environment at work and at home.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Infj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Seek meaning and connection in ideas, relationships, and material
     possessions. Want to understand what motivates people and are insightful
@@ -65,11 +91,24 @@ class Infj(MBTIType):
     decisive in implementing their vision.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Intj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Have original minds and great drive for implementing their ideas and
     achieving their goals. Quickly see patterns In external events and develop
@@ -78,11 +117,24 @@ class Intj(MBTIType):
     competence and performance - for themselves and others.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Istp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Tolerant and flexible, quiet observers until a problem appears, then act
     quickly to find workable solutions. Analyze what makes things work and
@@ -91,11 +143,24 @@ class Istp(MBTIType):
     principles, value efficiency.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Isfp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Quiet, friendly, sensitive, and kind. Enjoy the present moment, what's
     going on around them. Like to have their own space and to work within their
@@ -104,11 +169,24 @@ class Isfp(MBTIType):
     opinions or values on others.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Infp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Idealistic, loyal to their values and to people who are important to them.
     Want an external life that is congruent with their values. Curious, quick
@@ -117,11 +195,24 @@ class Infp(MBTIType):
     flexible, and accepting unless a value is threatened.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Intp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Seek to develop logical explanations for everything that interests them.
     Theoretical and abstract, interested more in ideas than in social
@@ -130,11 +221,24 @@ class Intp(MBTIType):
     Skeptical, sometimes critical, always analytical.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Estp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Flexible and tolerant, they take a pragmatic approach focused on immediate
     results. Theories and conceptual explanations bore them - they want to act
@@ -143,11 +247,24 @@ class Estp(MBTIType):
     material comforts and style. Learn best through doing.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Esfp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Outgoing, friendly, and accepting. Exuberant lovers of life, people, and
     material comforts. Enjoy working with others to make things happen. Bring
@@ -156,11 +273,24 @@ class Esfp(MBTIType):
     Learn best by trying a new skill with other people.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Enfp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Warmly enthusiastic and imaginative. See life as full of possibilities.
     Make connections between events and information very quickly, and
@@ -170,11 +300,24 @@ class Enfp(MBTIType):
     their verbal fluency.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Entp(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Quick, ingenious, stimulating, alert, and outspoken. Resourceful in solving
     new and challenging problems. Adept at generating conceptual possibilities
@@ -183,11 +326,24 @@ class Entp(MBTIType):
     new interest after another.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Estj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Practical, realistic, matter-of-fact. Decisive, quickly move to implement
     decisions. Organize projects and people to get things done, focus on
@@ -196,11 +352,24 @@ class Estj(MBTIType):
     and want others to also. Forceful in implementing their plans.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Esfj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Warmhearted, conscientious, and cooperative. Want harmony in their
     environment, work with determination to establish it. Like to work with
@@ -210,11 +379,24 @@ class Esfj(MBTIType):
     contribute.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Enfj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Warm, empathetic, responsive, and responsible. Highly attuned to the
     emotions, needs, and motivations of others. Find potential in everyone,
@@ -223,11 +405,24 @@ class Enfj(MBTIType):
     Sociable, facilitate others in a group, and provide inspiring leadership.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
 
 
 class Entj(MBTIType):
-    """Determine the response for this type, given another type.
+    """A Meyer-Briggs personality type indicator.
 
     Frank, decisive, assume leadership readily. Quickly see illogical and
     inefficient procedures and policies, develop and implement comprehensive
@@ -236,4 +431,17 @@ class Entj(MBTIType):
     and passing it on to others. Forceful in presenting their ideas.
     """
 
-    attrs = AttributeMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    attrs = AttributeMatrix(
+        hp=0,
+        mp=0,
+        strength=0,
+        endurance=0,
+        defense=0,
+        intelligence=0,
+        agility=0,
+        charisma=0,
+        wisdom=0,
+        willpower=0,
+        perception=0,
+        luck=0,
+    )
