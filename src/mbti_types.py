@@ -47,7 +47,7 @@ class Introvert(MBTIType):
         name = neighbor.name
         if name.startswith('i'):
             print('Hello fellow introvert ({}).'.format(name))
-            self.hp += 1
+            self.hp = min(self.hp + 1, 100)  # Cap hp to 100
         else:
             print('...')
             self.hp -= 1
@@ -61,7 +61,7 @@ class Extrovert(MBTIType):
         name = neighbor.name
         if name.startswith('e'):
             print('Hello fellow extrovert ({}).'.format(name))
-            self.hp += 1
+            self.hp = min(self.hp + 1, 100)  # Cap hp to 100
         else:
             print('...')
             self.hp -= 1
