@@ -9,7 +9,6 @@ from collections import namedtuple
 
 
 AttributeMatrix = namedtuple('AttributeMatrix', ', '.join([
-    'hp', 'mp',
     'strength', 'endurance',
     'defense', 'intelligence',
     'agility', 'charisma',
@@ -24,11 +23,15 @@ class MBTIType(object):
     def __init__(self, name):
         """Add attrs to personality type."""
         self._name = name
+        self.hp = 100
+        self.mp = 100
 
     def interact_with(self, neighbor):
-        """Engage in an interaction with a neighbor."""
-        print('I ({}) am interacting with... {}'.format(
-            self.name, neighbor.name))
+        """Engage in an interaction with a neighbor.
+
+        All child classes should override this method.
+        """
+        raise NotImplementedError
 
     @property
     def name(self):
@@ -36,7 +39,15 @@ class MBTIType(object):
         return self._name
 
 
-class Istj(MBTIType):
+class Introvert(MBTIType):
+    """Introverted people."""
+
+
+class Extrovert(MBTIType):
+    """Extroverted people."""
+
+
+class Istj(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     'Quiet, serious, earn success by thoroughness and dependability. Practical,
@@ -47,8 +58,6 @@ class Istj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -61,8 +70,18 @@ class Istj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
+        name = neighbor.name
+        if name.startswith('i'):
+            print('Hello fellow introvert ({}).'.format(name))
+            self.hp += 1
+        else:
+            print('...')
+            self.hp -= 1
 
-class Isfj(MBTIType):
+
+class Isfj(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Quiet, friendly, responsible, and conscientious. Committed and steady in
@@ -73,8 +92,6 @@ class Isfj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -87,8 +104,11 @@ class Isfj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Infj(MBTIType):
+
+class Infj(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Seek meaning and connection in ideas, relationships, and material
@@ -99,8 +119,6 @@ class Infj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -113,8 +131,11 @@ class Infj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Intj(MBTIType):
+
+class Intj(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Have original minds and great drive for implementing their ideas and
@@ -125,8 +146,6 @@ class Intj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -139,8 +158,11 @@ class Intj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Istp(MBTIType):
+
+class Istp(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Tolerant and flexible, quiet observers until a problem appears, then act
@@ -151,8 +173,6 @@ class Istp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -165,8 +185,11 @@ class Istp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Isfp(MBTIType):
+
+class Isfp(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Quiet, friendly, sensitive, and kind. Enjoy the present moment, what's
@@ -177,8 +200,6 @@ class Isfp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -191,8 +212,11 @@ class Isfp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Infp(MBTIType):
+
+class Infp(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Idealistic, loyal to their values and to people who are important to them.
@@ -203,8 +227,6 @@ class Infp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -217,8 +239,11 @@ class Infp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Intp(MBTIType):
+
+class Intp(Introvert):
     """A Meyer-Briggs personality type indicator.
 
     Seek to develop logical explanations for everything that interests them.
@@ -229,8 +254,6 @@ class Intp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -243,8 +266,11 @@ class Intp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Estp(MBTIType):
+
+class Estp(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Flexible and tolerant, they take a pragmatic approach focused on immediate
@@ -255,8 +281,6 @@ class Estp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -269,8 +293,11 @@ class Estp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Esfp(MBTIType):
+
+class Esfp(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Outgoing, friendly, and accepting. Exuberant lovers of life, people, and
@@ -281,8 +308,6 @@ class Esfp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -295,8 +320,11 @@ class Esfp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Enfp(MBTIType):
+
+class Enfp(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Warmly enthusiastic and imaginative. See life as full of possibilities.
@@ -308,8 +336,6 @@ class Enfp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -322,8 +348,11 @@ class Enfp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Entp(MBTIType):
+
+class Entp(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Quick, ingenious, stimulating, alert, and outspoken. Resourceful in solving
@@ -334,8 +363,6 @@ class Entp(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -348,8 +375,11 @@ class Entp(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Estj(MBTIType):
+
+class Estj(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Practical, realistic, matter-of-fact. Decisive, quickly move to implement
@@ -360,8 +390,6 @@ class Estj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -374,8 +402,11 @@ class Estj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Esfj(MBTIType):
+
+class Esfj(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Warmhearted, conscientious, and cooperative. Want harmony in their
@@ -387,8 +418,6 @@ class Esfj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -401,8 +430,11 @@ class Esfj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Enfj(MBTIType):
+
+class Enfj(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Warm, empathetic, responsive, and responsible. Highly attuned to the
@@ -413,8 +445,6 @@ class Enfj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -427,8 +457,11 @@ class Enfj(MBTIType):
         luck=0,
     )
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
 
-class Entj(MBTIType):
+
+class Entj(Extrovert):
     """A Meyer-Briggs personality type indicator.
 
     Frank, decisive, assume leadership readily. Quickly see illogical and
@@ -439,8 +472,6 @@ class Entj(MBTIType):
     """
 
     attrs = AttributeMatrix(
-        hp=0,
-        mp=0,
         strength=0,
         endurance=0,
         defense=0,
@@ -452,3 +483,6 @@ class Entj(MBTIType):
         perception=0,
         luck=0,
     )
+
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
