@@ -1,5 +1,7 @@
 """Game 'board' and environment for the mbti_types interactions."""
 
+from __future__ import print_function
+
 from random import choice
 
 import mbti_types
@@ -96,7 +98,23 @@ def random_grid(size=10):
     return grid
 
 
-def run_game(types, grid=None, iterations=5):
+def print_grid(grid):
+    """Print the grid in a uniform, intuitive way."""
+    for rownum, row in enumerate(grid):
+        printrow = ''  # accumulate the characters in a single row
+        for colnum, col in enumerate(row):
+            cell = grid.cell(rownum, colnum)
+            if colnum >= NEIGHBORHOOD_SIZE:
+                # print a new line if the current
+                # col count is > standard "width"
+                print(printrow)
+            else:
+                printrow += ' {} ({}) '.format(
+                    cell.name.upper(),
+                    str(cell.hp).zfill(3))
+
+
+def run_game(types, grid=None, iterations=10):
     """Run a game.
 
     NEIGHBORHOOD_SIZE determines the surrounding elements, in much the same
@@ -119,6 +137,7 @@ def run_game(types, grid=None, iterations=5):
                 neighbors = grid.get_neighborhood(row=rownum, col=colnum)
                 currcell = grid.cell(rownum, colnum)
                 evaluate(currcell, neighbors)
+                print_grid(grid)
         curr_step -= 1
 
 if __name__ == '__main__':
