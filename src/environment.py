@@ -83,7 +83,6 @@ def evaluate(currcell, neighbors):
     """Evaluate the current cell against its neighbors."""
     for neighbor in neighbors:
         if neighbor is not None:
-            print('neighbor= ', neighbor)
             neighbor.interact_with(currcell)
 
 
@@ -97,7 +96,7 @@ def random_grid(size=10):
     return grid
 
 
-def run_game(types, grid=None, iterations=1):
+def run_game(types, grid=None, iterations=5):
     """Run a game.
 
     NEIGHBORHOOD_SIZE determines the surrounding elements, in much the same
@@ -111,7 +110,7 @@ def run_game(types, grid=None, iterations=1):
     x = lst[0][2]  # Row one, column three (2, here)
     """
     if grid is None:
-        grid = Grid(random_grid(size=2))
+        grid = Grid(random_grid(size=10))
     curr_step = iterations
 
     while curr_step > 0:
