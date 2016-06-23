@@ -42,9 +42,29 @@ class MBTIType(object):
 class Introvert(MBTIType):
     """Introverted people."""
 
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
+        name = neighbor.name
+        if name.startswith('i'):
+            print('Hello fellow introvert ({}).'.format(name))
+            self.hp += 1
+        else:
+            print('...')
+            self.hp -= 1
+
 
 class Extrovert(MBTIType):
     """Extroverted people."""
+
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
+        name = neighbor.name
+        if name.startswith('e'):
+            print('Hello fellow extrovert ({}).'.format(name))
+            self.hp += 1
+        else:
+            print('...')
+            self.hp -= 1
 
 
 class Istj(Introvert):
@@ -72,13 +92,7 @@ class Istj(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
-        name = neighbor.name
-        if name.startswith('i'):
-            print('Hello fellow introvert ({}).'.format(name))
-            self.hp += 1
-        else:
-            print('...')
-            self.hp -= 1
+        super(Istj, self).interact_with(neighbor)
 
 
 class Isfj(Introvert):
@@ -106,6 +120,7 @@ class Isfj(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Isfj, self).interact_with(neighbor)
 
 
 class Infj(Introvert):
@@ -133,6 +148,7 @@ class Infj(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Infj, self).interact_with(neighbor)
 
 
 class Intj(Introvert):
@@ -160,6 +176,7 @@ class Intj(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Intj, self).interact_with(neighbor)
 
 
 class Istp(Introvert):
@@ -187,6 +204,7 @@ class Istp(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Istp, self).interact_with(neighbor)
 
 
 class Isfp(Introvert):
@@ -214,6 +232,7 @@ class Isfp(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Isfp, self).interact_with(neighbor)
 
 
 class Infp(Introvert):
@@ -241,6 +260,7 @@ class Infp(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Infp, self).interact_with(neighbor)
 
 
 class Intp(Introvert):
@@ -268,6 +288,7 @@ class Intp(Introvert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Intp, self).interact_with(neighbor)
 
 
 class Estp(Extrovert):
@@ -295,6 +316,7 @@ class Estp(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Estp, self).interact_with(neighbor)
 
 
 class Esfp(Extrovert):
@@ -322,6 +344,7 @@ class Esfp(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Esfp, self).interact_with(neighbor)
 
 
 class Enfp(Extrovert):
@@ -350,6 +373,7 @@ class Enfp(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Enfp, self).interact_with(neighbor)
 
 
 class Entp(Extrovert):
@@ -377,6 +401,7 @@ class Entp(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Entp, self).interact_with(neighbor)
 
 
 class Estj(Extrovert):
@@ -404,6 +429,7 @@ class Estj(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Estj, self).interact_with(neighbor)
 
 
 class Esfj(Extrovert):
@@ -432,6 +458,7 @@ class Esfj(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Esfj, self).interact_with(neighbor)
 
 
 class Enfj(Extrovert):
@@ -459,6 +486,7 @@ class Enfj(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Enfj, self).interact_with(neighbor)
 
 
 class Entj(Extrovert):
@@ -486,3 +514,4 @@ class Entj(Extrovert):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Entj, self).interact_with(neighbor)
