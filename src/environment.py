@@ -29,11 +29,49 @@ types = dict(
 choice_typed = zip(types.keys(), types.values())
 
 
+class Grid(list):
+    """Overloaded list with some convenience methods for the grid."""
+
+    def __init__(self, grid):
+        """Add initial grid."""
+        self += grid
+
+    def cell(self, row, col):
+        """Try to get a cell."""
+        try:
+            return self[row][col]
+        except IndexError:
+            return None
+
+    def get_neighborhood(self, col=0, row=0):
+        """Get the neighborhood of a given cell.
+
+        Example of neighborhood below:
+
+        [1] [2] [3]
+        [4] [X] [5]
+        [6] [7] [8]
+        """
+        # Top row
+        tl = self.cell(row - 1, col - 1)
+        tc = self.cell(row, col - 1)
+        tr = self.cell(row - 1, col + 1)
+        # Left and right
+        ml, mr = self.cell(row - 1, col), self.cell(row + 1, col)
+        # Bottom row
+        bl = self.cell(row + 1, col - 1)
+        bc = self.cell(row, col + 1)
+        br = self.cell(row + 1, col + 1)
+        return [
+            tl, tc, tr,
+            ml, mr,
+            bl, bc, br,
+        ]
+
+
 def new_grid(size):
     """Generate an empty grid of `size`."""
-    return [
-        [0 for _ in range(size)] for _ in range(size)
-    ]
+    return [[0 for _ in range(size)] for _ in range(size)]
 
 
 def get_pos(grid, x, y):
@@ -41,7 +79,15 @@ def get_pos(grid, x, y):
     return grid[x][y]
 
 
-def random_grid(grid, size=10):
+def evaluate(currcell, neighbors):
+    """Evaluate the current cell against its neighbors."""
+    for neighbor in neighbors:
+        if neighbor is not None:
+            print('neighbor= ', neighbor)
+            neighbor.interact_with(currcell)
+
+
+def random_grid(size=10):
     """Generate a grid of random types."""
     grid = new_grid(size)
     for rownum, row in enumerate(grid):
@@ -51,7 +97,7 @@ def random_grid(grid, size=10):
     return grid
 
 
-def run_game(types, grid=None, iterations=10):
+def run_game(types, grid=None, iterations=1):
     """Run a game.
 
     NEIGHBORHOOD_SIZE determines the surrounding elements, in much the same
@@ -65,14 +111,15 @@ def run_game(types, grid=None, iterations=10):
     x = lst[0][2]  # Row one, column three (2, here)
     """
     if grid is None:
-        grid = random_grid(10)
+        grid = Grid(random_grid(size=2))
     curr_step = iterations
+
     while curr_step > 0:
         for rownum, row in enumerate(grid):
             for colnum, col in enumerate(row):
-                curr_type = grid[rownum][colnum]
-                print('curr_type @ {x},{y} = '.format(
-                    x=rownum, y=colnum), curr_type.name.upper())
+                neighbors = grid.get_neighborhood(row=rownum, col=colnum)
+                currcell = grid.cell(rownum, colnum)
+                evaluate(currcell, neighbors)
         curr_step -= 1
 
 if __name__ == '__main__':

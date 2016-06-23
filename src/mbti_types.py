@@ -22,10 +22,17 @@ class MBTIType(object):
     """Base class."""
 
     def __init__(self, name):
+        """Add attrs to personality type."""
         self._name = name
+
+    def interact_with(self, neighbor):
+        """Engage in an interaction with a neighbor."""
+        print('I ({}) am interacting with... {}'.format(
+            self.name, neighbor.name))
 
     @property
     def name(self):
+        """Basic name."""
         return self._name
 
 
