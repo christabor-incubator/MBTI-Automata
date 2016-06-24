@@ -27,7 +27,7 @@ class MBTIType(object):
 
     def __init__(self, name):
         """Add attrs to personality type."""
-        self._name = name
+        self.name = name
         self.hp = 100
         self.mp = 100
         self.char = CharacterMatrix(
@@ -52,11 +52,6 @@ class MBTIType(object):
     def is_dead(self):
         """Determine if the person is 'dead'."""
         return self.hp <= 0
-
-    @property
-    def name(self):
-        """Basic name."""
-        return self._name
 
 
 class Introvert(MBTIType):
