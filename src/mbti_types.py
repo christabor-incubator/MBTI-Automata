@@ -7,7 +7,12 @@ basics/the-16 -mbti-types.htm:
 
 from collections import namedtuple
 
+from faker import Faker
 
+fake = Faker()
+CharacterMatrix = namedtuple('CharacterMatrix', ' '.join([
+    'name', 'age', 'gender',
+]))
 AttributeMatrix = namedtuple('AttributeMatrix', ', '.join([
     'strength', 'endurance',
     'defense', 'intelligence',
@@ -25,6 +30,11 @@ class MBTIType(object):
         self._name = name
         self.hp = 100
         self.mp = 100
+        self.char = CharacterMatrix(
+            name=fake.name(),
+            age=fake.age(),
+            gender=fake.gender(),
+        )
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor.
@@ -32,6 +42,18 @@ class MBTIType(object):
         All child classes should override this method.
         """
         raise NotImplementedError
+
+    def is_introvert(self, neighbor):
+        """Determine if neighbor is an introvert type."""
+        return neighbor.name.startswith('i')
+
+    def is_extrovert(self, neighbor):
+        """Determine if neighbor is an extrovert type."""
+        return neighbor.name.startswith('e')
+
+    def is_dead(self):
+        """Determine if the person is 'dead'."""
+        return self.hp <= 0
 
     @property
     def name(self):
@@ -45,12 +67,14 @@ class Introvert(MBTIType):
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
         name = neighbor.name
-        if name.startswith('i'):
+        if self.is_introvert(neighbor):
             print('Hello fellow introvert ({}).'.format(name))
             self.hp = min(self.hp + 1, 100)  # Cap hp to 100
-        else:
+        if self.is_extrovert(neighbor):
             print('...')
             self.hp -= 1
+        if self.is_dead():
+            print('{} died!'.format(self.name))
 
 
 class Extrovert(MBTIType):
@@ -59,10 +83,10 @@ class Extrovert(MBTIType):
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
         name = neighbor.name
-        if name.startswith('e'):
+        if self.is_extrovert(neighbor):
             print('Hello fellow extrovert ({}).'.format(name))
             self.hp = min(self.hp + 1, 100)  # Cap hp to 100
-        else:
+        if self.is_introvert(neighbor):
             print('...')
             self.hp -= 1
 
