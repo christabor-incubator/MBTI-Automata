@@ -109,12 +109,15 @@ def print_grid(grid):
                 # col count is > standard "width"
                 print(printrow)
             else:
-                printrow += ' {} ({}) '.format(
-                    cell.name.upper(),
-                    str(cell.hp).zfill(3))
+                if cell.is_dead():
+                    printrow += '   -DEAD-   '
+                else:
+                    printrow += ' {} ({}) '.format(
+                        cell.name.upper(),
+                        str(cell.hp).zfill(3))
 
 
-def run_game(types, grid=None, iterations=10):
+def run_game(types, grid=None, iterations=20):
     """Run a game.
 
     NEIGHBORHOOD_SIZE determines the surrounding elements, in much the same

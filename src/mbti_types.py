@@ -37,11 +37,9 @@ class MBTIType(object):
         )
 
     def interact_with(self, neighbor):
-        """Engage in an interaction with a neighbor.
-
-        All child classes should override this method.
-        """
-        raise NotImplementedError
+        """Engage in an interaction with a neighbor."""
+        if self.is_dead():
+            print('{} ({}) died!'.format(self.char.name, self.name.upper()))
 
     def is_introvert(self, neighbor):
         """Determine if neighbor is an introvert type."""
@@ -66,6 +64,7 @@ class Introvert(MBTIType):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Introvert, self).interact_with(neighbor)
         name = neighbor.name
         if self.is_introvert(neighbor):
             print('Hello fellow introvert ({}).'.format(name))
@@ -73,8 +72,6 @@ class Introvert(MBTIType):
         if self.is_extrovert(neighbor):
             print('...')
             self.hp -= 1
-        if self.is_dead():
-            print('{} died!'.format(self.name))
 
 
 class Extrovert(MBTIType):
@@ -82,6 +79,7 @@ class Extrovert(MBTIType):
 
     def interact_with(self, neighbor):
         """Engage in an interaction with a neighbor."""
+        super(Extrovert, self).interact_with(neighbor)
         name = neighbor.name
         if self.is_extrovert(neighbor):
             print('Hello fellow extrovert ({}).'.format(name))
