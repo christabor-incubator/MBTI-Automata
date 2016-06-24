@@ -134,14 +134,15 @@ def run_game(types, grid=None, iterations=20):
         grid = Grid(random_grid(size=10))
     curr_step = iterations
 
-    while curr_step > 0:
+    while curr_step <= iterations:
         for rownum, row in enumerate(grid):
             for colnum, col in enumerate(row):
                 neighbors = grid.get_neighborhood(row=rownum, col=colnum)
                 currcell = grid.cell(rownum, colnum)
                 evaluate(currcell, neighbors)
-                print_grid(grid)
-        curr_step -= 1
+        print('=============== Iteration: {}'.format(curr_step))
+        print_grid(grid)
+        curr_step += 1
 
 if __name__ == '__main__':
     run_game(mbti_types)

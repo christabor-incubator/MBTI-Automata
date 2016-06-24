@@ -6,6 +6,7 @@ basics/the-16 -mbti-types.htm:
 """
 
 from collections import namedtuple
+from random import choice, randrange
 
 from faker import Faker
 
@@ -32,8 +33,8 @@ class MBTIType(object):
         self.mp = 100
         self.char = CharacterMatrix(
             name=fake.name(),
-            age=fake.age(),
-            gender=fake.gender(),
+            age=randrange(0, 100),
+            gender=choice(['Male', 'Female', 'Other']),
         )
 
     def interact_with(self, neighbor):
@@ -62,10 +63,10 @@ class Introvert(MBTIType):
         super(Introvert, self).interact_with(neighbor)
         name = neighbor.name
         if self.is_introvert(neighbor):
-            print('Hello fellow introvert ({}).'.format(name))
+            print('{} ({}) said: "hello fellow introvert!".'.format(
+                self.char.name, name))
             self.hp = min(self.hp + 1, 100)  # Cap hp to 100
         if self.is_extrovert(neighbor):
-            print('...')
             self.hp -= 1
 
 
@@ -77,10 +78,10 @@ class Extrovert(MBTIType):
         super(Extrovert, self).interact_with(neighbor)
         name = neighbor.name
         if self.is_extrovert(neighbor):
-            print('Hello fellow extrovert ({}).'.format(name))
+            print('{} ({}) said: "hello fellow extrovert!".'.format(
+                self.char.name, name))
             self.hp = min(self.hp + 1, 100)  # Cap hp to 100
         if self.is_introvert(neighbor):
-            print('...')
             self.hp -= 1
 
 
